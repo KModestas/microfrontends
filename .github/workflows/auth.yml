@@ -1,11 +1,13 @@
 name: deploy-auth
 
-on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'packages/auth/**'
+# on:
+#   push:
+#     branches:
+#       - main
+#     paths:
+#       - 'packages/auth/**'
+on: 
+  workflow_dispatch:
 
 defaults:
   run:
