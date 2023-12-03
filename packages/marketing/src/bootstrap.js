@@ -8,7 +8,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
   const history =
     defaultHistory ||
     createMemoryHistory({
-      // since MemoryRouter never reads the URL, it will always initialise with "/"
+      // since MemoryRouter never reads the URL, it will always initialise with "/". Instead initialise it with the current path:
       initialEntries: [initialPath],
     });
 
@@ -21,7 +21,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
   ReactDOM.render(<App history={history} />, el);
 
   return {
-    // provide a function to the container so that it can update the child apps path
+    // provide a function for the container to invoke so that it can update the child apps path
     onParentNavigate({ pathname: nextPathname }) {
       const { pathname } = history.location;
 
@@ -37,7 +37,6 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
 if (process.env.NODE_ENV === 'development') {
   const devRoot = document.querySelector('#_marketing-dev-root');
 
-  // this element should not exist in the container
   if (devRoot) {
     mount(devRoot, {
       // when running the app in isolation, use browser router so that we can see the address bar update (better DX)

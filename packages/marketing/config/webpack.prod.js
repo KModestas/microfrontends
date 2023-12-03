@@ -15,6 +15,7 @@ const prodConfig = {
       name: 'marketing',
       filename: 'remoteEntry.js',
       // we expose the boostrap file rather than index.js because that is what is exporting our mount function
+      //  The alias allows us to give a more meaningful name for when the container imports the remote otherwise all remote imports will look the same E.g. namepace/src/index
       exposes: {
         './MarketingApp': './src/bootstrap',
       },

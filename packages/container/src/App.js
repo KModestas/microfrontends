@@ -31,7 +31,7 @@ export default () => {
   }, [isSignedIn]);
 
   return (
-    // we cant access history in the same component where you define BrowserRouter so we need to use memory router and manually recreate it:
+    // NOTE: we cant access history in the same component where you define BrowserRouter so we need to use memory router and manually recreate it:
     <Router history={history}>
       <StylesProvider generateClassName={generateClassName}>
         <div>
